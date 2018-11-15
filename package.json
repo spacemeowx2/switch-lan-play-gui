@@ -2,10 +2,13 @@
   "name": "switch-lan-play-gui",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/electron-entry.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dist": "electron-builder --win --x64",
+    "lint": "vue-cli-service lint",
+    "start": "electron ."
   },
   "dependencies": {
     "material-design-icons-iconfont": "^3.0.3",
@@ -20,11 +23,28 @@
   "devDependencies": {
     "@vue/cli-plugin-typescript": "^3.0.5",
     "@vue/cli-service": "^3.0.5",
+    "electron": "^3.0.4",
+    "electron-builder": "^20.28.4",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "tslint-config-standard": "^8.0.1",
     "typescript": "^3.0.0",
     "vue-cli-plugin-vuetify": "^0.2.1",
     "vue-template-compiler": "^2.5.17"
+  },
+  "build": {
+    "appId": "cn.imspace.switchlanplay",
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "directories": {
+      "output": "electron-dist"
+    },
+    "files": [
+      "dist/**/*",
+      "!node_modules/"
+    ]
   }
 }
