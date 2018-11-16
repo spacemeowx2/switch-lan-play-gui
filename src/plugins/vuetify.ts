@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+// @ts-ignore
+import zhHans from 'vuetify/es5/locale/zh-Hans'
 import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify, {
@@ -12,5 +14,9 @@ Vue.use(Vuetify, {
     success: '#4CAF50',
     warning: '#FFC107'
   },
-  iconfont: 'md'
+  iconfont: 'md',
+  locales: {
+    'zh-Hans': zhHans
+  },
+  current: 'zh-Hans'
 })
